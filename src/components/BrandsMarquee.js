@@ -54,46 +54,39 @@ const BrandsMarquee = () => {
     // Check if we're on a mobile device
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
-    // If on mobile, pause the animation by default
+    // Touch event handlers - only for mobile
     if (isMobile) {
-      marqueeContent.style.animationPlayState = 'paused';
+      // Touch event handlers
+      const handleTouchStart = (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - marqueeContainer.offsetLeft;
+        scrollLeft = marqueeContainer.scrollLeft;
+      };
+      
+      const handleTouchEnd = () => {
+        isDown = false;
+      };
+      
+      const handleTouchMove = (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - marqueeContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        marqueeContainer.scrollLeft = scrollLeft - walk;
+      };
+      
+      // Add event listeners for touch events
+      marqueeContainer.addEventListener('touchstart', handleTouchStart);
+      marqueeContainer.addEventListener('touchend', handleTouchEnd);
+      marqueeContainer.addEventListener('touchmove', handleTouchMove);
+      
+      // Cleanup event listeners
+      return () => {
+        marqueeContainer.removeEventListener('touchstart', handleTouchStart);
+        marqueeContainer.removeEventListener('touchend', handleTouchEnd);
+        marqueeContainer.removeEventListener('touchmove', handleTouchMove);
+      };
     }
-    
-    // Touch event handlers
-    const handleTouchStart = (e) => {
-      isDown = true;
-      marqueeContent.style.animationPlayState = 'paused';
-      startX = e.touches[0].pageX - marqueeContainer.offsetLeft;
-      scrollLeft = marqueeContainer.scrollLeft;
-    };
-    
-    const handleTouchEnd = () => {
-      isDown = false;
-      // Only restart animation on desktop
-      if (!isMobile) {
-        marqueeContent.style.animationPlayState = 'running';
-      }
-    };
-    
-    const handleTouchMove = (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.touches[0].pageX - marqueeContainer.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll speed multiplier
-      marqueeContainer.scrollLeft = scrollLeft - walk;
-    };
-    
-    // Add event listeners for touch events
-    marqueeContainer.addEventListener('touchstart', handleTouchStart);
-    marqueeContainer.addEventListener('touchend', handleTouchEnd);
-    marqueeContainer.addEventListener('touchmove', handleTouchMove);
-    
-    // Cleanup event listeners
-    return () => {
-      marqueeContainer.removeEventListener('touchstart', handleTouchStart);
-      marqueeContainer.removeEventListener('touchend', handleTouchEnd);
-      marqueeContainer.removeEventListener('touchmove', handleTouchMove);
-    };
   }, []);
 
   return (
