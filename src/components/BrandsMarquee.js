@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../styles/components/BrandsMarquee.scss';
 
 const BrandsMarquee = () => {
@@ -35,6 +35,66 @@ const BrandsMarquee = () => {
   
   // Duplicate the brands to create a seamless loop
   const duplicatedBrands = [...brands, ...brands];
+  
+  // Refs for touch scrolling
+  const marqueeRef = useRef(null);
+  const contentRef = useRef(null);
+  
+  useEffect(() => {
+    const marqueeContainer = marqueeRef.current;
+    const marqueeContent = contentRef.current;
+    
+    if (!marqueeContainer || !marqueeContent) return;
+    
+    // Variables for touch scrolling
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    // Check if we're on a mobile device
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    // If on mobile, pause the animation by default
+    if (isMobile) {
+      marqueeContent.style.animationPlayState = 'paused';
+    }
+    
+    // Touch event handlers
+    const handleTouchStart = (e) => {
+      isDown = true;
+      marqueeContent.style.animationPlayState = 'paused';
+      startX = e.touches[0].pageX - marqueeContainer.offsetLeft;
+      scrollLeft = marqueeContainer.scrollLeft;
+    };
+    
+    const handleTouchEnd = () => {
+      isDown = false;
+      // Only restart animation on desktop
+      if (!isMobile) {
+        marqueeContent.style.animationPlayState = 'running';
+      }
+    };
+    
+    const handleTouchMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - marqueeContainer.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      marqueeContainer.scrollLeft = scrollLeft - walk;
+    };
+    
+    // Add event listeners for touch events
+    marqueeContainer.addEventListener('touchstart', handleTouchStart);
+    marqueeContainer.addEventListener('touchend', handleTouchEnd);
+    marqueeContainer.addEventListener('touchmove', handleTouchMove);
+    
+    // Cleanup event listeners
+    return () => {
+      marqueeContainer.removeEventListener('touchstart', handleTouchStart);
+      marqueeContainer.removeEventListener('touchend', handleTouchEnd);
+      marqueeContainer.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
 
   return (
     <section className="brands-section" id="brands">
@@ -43,8 +103,8 @@ const BrandsMarquee = () => {
         <p className="section-subtitle">We partner with the most reputable brands in Bangalore</p>
       </div>
       
-      <div className="marquee-container">
-        <div className="marquee-content">
+      <div className="marquee-container" ref={marqueeRef}>
+        <div className="marquee-content" ref={contentRef}>
           {duplicatedBrands.map((brand, index) => (
             <div className="brand-item" key={`${brand.id}-${index}`}>
               <div className="brand-logo-container">

@@ -26,8 +26,16 @@
 
 .marquee-container {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   position: relative;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  
+  /* Hide scrollbar for Chrome/Safari */
+  &::-webkit-scrollbar {
+    display: none;
+  }
   
   &::before, &::after {
     content: '';
@@ -36,6 +44,7 @@
     width: 150px;
     height: 100%;
     z-index: 2;
+    pointer-events: none; /* Allow touch events to pass through */
   }
   
   &::before {
@@ -47,15 +56,29 @@
     right: 0;
     background: linear-gradient(to left, #0f0f0f, transparent);
   }
+  
+  @media (max-width: $mobile) {
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
 }
 
 .marquee-content {
   display: flex;
   animation: marquee 60s linear infinite; /* Increased animation time for more brands */
   padding: $spacing-md 0;
+  min-width: max-content; /* Ensure content doesn't wrap */
   
   &:hover {
     animation-play-state: paused;
+  }
+  
+  @media (max-width: $mobile) {
+    animation-play-state: paused; /* Paused by default on mobile for touch scrolling */
+    padding: $spacing-md $spacing-lg; /* Add horizontal padding for better appearance */
   }
 }
 
