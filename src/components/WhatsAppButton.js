@@ -3,8 +3,8 @@ import { FaWhatsapp } from 'react-icons/fa';
 import '../styles/components/WhatsAppButton.scss';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '9979972714';
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const phoneNumber = '919979972714'; // Added country code (91 for India)
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
 
   return (
     <a 

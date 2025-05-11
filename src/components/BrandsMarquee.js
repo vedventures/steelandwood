@@ -108,7 +108,7 @@ const BrandsMarquee = () => {
           {duplicatedBrands.map((brand, index) => (
             <div className="brand-item" key={`${brand.id}-${index}`}>
               <div className="brand-logo-container">
-                <div className="text-logo">{brand.name.split(' ')[0]}</div>
+                <div className="text-logo">{brand.name}</div>
               </div>
               <div className="brand-info">
                 <h3>{brand.name}</h3>
