@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Products from '../components/Products';
 import Services from '../components/Services';
+import BrandsMarquee from '../components/BrandsMarquee';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 
@@ -13,6 +14,7 @@ const HomePage = () => {
       <About />
       <Products />
       <Services />
+      <BrandsMarquee />
       <Testimonials />
       <Contact />
     </>

@@ -1,0 +1,178 @@
+@import '../variables';
+
+.brands-section {
+  background-color: #0f0f0f; /* Match with other sections */
+  padding: $spacing-xxl 0;
+  overflow: hidden;
+  position: relative;
+  
+  .section-title {
+    color: $white;
+    text-align: center;
+    margin-bottom: $spacing-md;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  .section-subtitle {
+    color: $text-color-light;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+  }
+  
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #0f0f0f, transparent);
+  }
+  
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #0f0f0f, transparent);
+  }
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 60s linear infinite; /* Increased animation time for more brands */
+  padding: $spacing-md 0;
+  
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 $spacing-lg; /* Reduced margin to fit more brands */
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 8px rgba($primary-color, 0.5));
+  }
+  
+  .brand-logo-container {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: $spacing-sm;
+    margin-bottom: $spacing-sm;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .text-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 15%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+      background: linear-gradient(135deg, lighten($primary-color, 5%) 0%, $primary-color 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+  
+  .brand-info {
+    text-align: center;
+    
+    h3 {
+      color: $white;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .brand-category {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: $mobile) {
+  .brands-section {
+    padding: $spacing-xl 0;
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  .brand-item {
+    margin: 0 $spacing-md;
+    
+    .brand-logo-container {
+      width: 120px;
+      height: 80px;
+    }
+    
+    .brand-logo {
+      max-height: 60px;
+    }
+    
+    .brand-info h3 {
+      font-size: 0.9rem;
+    }
+    
+    .brand-category {
+      font-size: 0.7rem;
+    }
+  }
+}
