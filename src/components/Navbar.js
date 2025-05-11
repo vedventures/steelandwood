@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <img src={require('../logov.png')} alt="Vedanta Ventures Logo" className="logo-image" />
+          <img src={require('../llogo.png')} alt="Vedanta Ventures Logo" className="logo-image" />
         </Link>
 
         <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
