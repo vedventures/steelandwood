@@ -1,7 +1,7 @@
 @import '../variables';
 
 .navbar {
-  background: $dark-bg;
+  background: #0f0f0f; /* Changed from $dark-bg to match hero section */
   height: 80px;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Enhanced shadow for premium look */
   transition: all $transition-medium;
   
   &.scrolled {
@@ -42,7 +42,7 @@
   }
   
   .logo-image {
-    height: 45px;
+    height: 55px; /* Increased from 45px to 55px */
     width: auto;
     object-fit: contain;
   }

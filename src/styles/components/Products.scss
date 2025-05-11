@@ -1,27 +1,28 @@
 @import '../variables';
 
 .products {
-  background-color: $dark-bg;
+  background-color: #0f0f0f; /* Matches hero section background */
   padding: $spacing-xxl 0;
 }
 
-.products-container {
+.products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-lg;
   margin-top: $spacing-xl;
   
   @media (max-width: $desktop) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Changed from 2 to 3 columns to keep side by side on desktop */
   }
   
   @media (max-width: $tablet) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* Show 2 columns on tablet */
     gap: $spacing-md;
     margin-top: $spacing-lg;
   }
   
   @media (max-width: $mobile) {
+    grid-template-columns: 1fr; /* Single column on mobile */
     gap: $spacing-md;
     margin-top: $spacing-md;
   }
@@ -97,7 +98,7 @@
   h3 {
     margin-top: 0;
     margin-bottom: $spacing-sm;
-    color: $primary-color;
+    color: $white; /* Changed from primary-color to white */
     font-size: 1.5rem;
     
     @media (max-width: $mobile) {

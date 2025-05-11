@@ -1,7 +1,7 @@
 @import '../variables';
 
 .about {
-  background-color: $light-bg;
+  background-color: #0f0f0f; /* Matches hero section background */
   padding: $spacing-xxl 0;
 }
 
@@ -54,7 +54,7 @@
   
   .icon-container {
     font-size: 2.5rem;
-    color: $primary-color;
+    color: $white; /* Changed from primary-color to white */
     margin-bottom: $spacing-sm;
   }
   
