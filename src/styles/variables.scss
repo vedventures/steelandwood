@@ -1,0 +1,49 @@
+// Brand Colors
+$primary-color: #2c6cb5; // Deep blue primary color
+$secondary-color: #7ba9de; // Lighter blue that works on dark backgrounds
+$accent-color: #1a4f8c; // Darker blue accent
+$text-color: #e0e0e0; // Light gray for text on dark backgrounds
+$text-color-light: #c0c0c0; // Lighter gray for secondary text on dark backgrounds
+$light-bg: #2a2a2a; // Dark gray background (lighter shade)
+$dark-bg: #1a1a1a; // Very dark gray/almost black background
+$white: #ffffff;
+$black: #000000;
+
+// Typography
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-body: 'Poppins', sans-serif;
+
+// Breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$large-desktop: 1200px;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 5rem;
+
+// Border Radius
+$border-radius: 8px; // Default border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 20px;
+$border-radius-round: 50%;
+
+// Transitions
+$transition-slow: 0.5s ease;
+$transition-medium: 0.3s ease;
+$transition-fast: 0.2s ease;
+
+// Shadows
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+$box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+$box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+$box-shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.15);

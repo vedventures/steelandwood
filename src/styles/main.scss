@@ -1,0 +1,175 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-body;
+  color: $text-color;
+  line-height: 1.6;
+  background-color: $dark-bg;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  margin-bottom: $spacing-sm;
+  line-height: 1.3;
+  color: $primary-color;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  
+  @media (min-width: $tablet) {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  
+  @media (min-width: $tablet) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  
+  @media (min-width: $tablet) {
+    font-size: 1.75rem;
+  }
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+ul, ol {
+  list-style-position: inside;
+  margin-bottom: $spacing-md;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button, .btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-family: $font-family-body;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all $transition-medium;
+  border: none;
+  outline: none;
+  text-align: center;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $white;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    color: $white;
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+section {
+  padding: $spacing-xxl 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: $spacing-xl;
+  text-align: center;
+  
+  h2 {
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: lighten($text-color, 20%);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+// Flex utilities
+.flex {
+  display: flex;
+  
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  
+  &-column {
+    flex-direction: column;
+  }
+  
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &-between {
+    justify-content: space-between;
+  }
+  
+  &-around {
+    justify-content: space-around;
+  }
+}

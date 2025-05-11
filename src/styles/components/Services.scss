@@ -1,0 +1,64 @@
+@import '../variables';
+
+.services {
+  background-color: $light-bg;
+  padding: $spacing-xxl 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service-card {
+  background-color: $dark-bg;
+  padding: $spacing-xl;
+  border-radius: $border-radius-md;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform $transition-medium, box-shadow $transition-medium;
+  border: 1px solid rgba($primary-color, 0.2);
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $box-shadow-lg;
+    
+    .icon-container {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+  
+  .icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: $border-radius-round;
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $spacing-md;
+    transition: all $transition-medium;
+  }
+  
+  h3 {
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+  }
+  
+  p {
+    margin-bottom: 0;
+    color: $text-color;
+  }
+}

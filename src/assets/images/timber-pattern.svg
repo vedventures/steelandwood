@@ -1,0 +1,9 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="woodgrain" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M0,10 Q25,5 50,10 Q25,15 0,10 Z M0,20 Q25,15 50,20 Q25,25 0,20 Z M0,30 Q25,25 50,30 Q25,35 0,30 Z M0,40 Q25,35 50,40 Q25,45 0,40 Z M0,50 Q25,45 50,50 Q25,55 0,50 Z" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.3" />
+      <path d="M0,5 Q25,0 50,5 M0,15 Q25,10 50,15 M0,25 Q25,20 50,25 M0,35 Q25,30 50,35 M0,45 Q25,40 50,45" stroke="white" stroke-width="0.3" stroke-opacity="0.2" fill="none" />
+    </pattern>
+  </defs>
+  <rect width="100" height="100" fill="url(#woodgrain)" />
+</svg>

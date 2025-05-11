@@ -1,0 +1,132 @@
+@import '../variables';
+
+.footer {
+  background-color: $dark-bg;
+  color: $white;
+  padding-top: $spacing-xxl;
+  padding-bottom: $spacing-lg;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xl;
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $desktop) {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+  
+  @media (max-width: $mobile) {
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.footer-logo {
+  h2 {
+    color: $secondary-color;
+    font-size: 1.5rem;
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    color: lighten($text-color, 40%);
+    margin-bottom: $spacing-md;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: $spacing-sm;
+  
+  a {
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-round;
+    background-color: rgba($white, 0.1);
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all $transition-medium;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: $mobile) {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: $mobile) {
+    justify-content: flex-start;
+  }
+}
+
+.footer-links {
+  h3 {
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+    font-size: 1.25rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: $spacing-sm;
+  }
+  
+  a {
+    color: lighten($text-color, 40%);
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.footer-contact {
+  h3 {
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+    font-size: 1.25rem;
+  }
+  
+  p {
+    color: lighten($text-color, 40%);
+    margin-bottom: $spacing-sm;
+    
+    strong {
+      color: $white;
+      margin-right: $spacing-xs;
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba($white, 0.1);
+  
+  p {
+    color: lighten($text-color, 40%);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+}

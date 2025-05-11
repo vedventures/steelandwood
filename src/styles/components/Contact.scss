@@ -1,0 +1,395 @@
+@import '../variables';
+
+.contact {
+  background-color: $dark-bg;
+  color: $white;
+  padding: $spacing-xxl 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba($primary-color, 0.05), transparent 60%),
+              radial-gradient(circle at bottom left, rgba($primary-color, 0.05), transparent 60%);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  margin-top: $spacing-xl;
+  
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  @media (max-width: $mobile) {
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+  }
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  flex: 1;
+  order: 2;
+  
+  @media (min-width: $desktop) {
+    order: 1;
+    padding-right: $spacing-xl;
+  }
+}
+
+.contact-form-container {
+  background-color: rgba($light-bg, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($primary-color, 0.3);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: $spacing-sm;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: $primary-color;
+      border-radius: $border-radius-sm;
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    
+    .form-group {
+      flex: 1;
+    }
+  }
+  
+  @media (max-width: $mobile) {
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.contact-form {
+  .form-group {
+    margin-bottom: $spacing-md;
+    
+    label {
+      display: block;
+      margin-bottom: $spacing-xs;
+      color: $white;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: $spacing-md;
+    border: 1px solid rgba($primary-color, 0.3);
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+    font-family: $font-family-body;
+    background-color: rgba($dark-bg, 0.6);
+    color: $white;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 10px rgba($primary-color, 0.3);
+      background-color: rgba($dark-bg, 0.8);
+    }
+  }
+  
+  textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  button {
+    width: 100%;
+    padding: $spacing-md;
+    font-weight: 600;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+    margin-top: $spacing-md;
+    position: relative;
+    overflow: hidden;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: all 0.6s;
+    }
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($primary-color, 0.4);
+      
+      &:before {
+        left: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  flex: 1;
+  order: 1;
+  
+  @media (min-width: $desktop) {
+    order: 2;
+  }
+}
+
+.why-choose-us-container {
+  background-color: rgba($primary-color, 0.1);
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  border: 1px solid rgba($primary-color, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba($primary-color, 0.3), transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+  }
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: $spacing-sm;
+    text-align: center;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: $primary-color;
+      border-radius: $border-radius-sm;
+    }
+  }
+}
+
+.benefits-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.benefit-item {
+  background-color: rgba($dark-bg, 0.5);
+  border-radius: $border-radius-md;
+  border: 1px solid rgba($primary-color, 0.2);
+  overflow: hidden;
+  transition: all $transition-medium;
+  margin-bottom: $spacing-xs;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba($primary-color, 0.4);
+    
+    .icon-container {
+      background-color: $primary-color;
+      transform: scale(1.1) rotate(10deg);
+    }
+    
+    .benefit-header h4 {
+      color: $primary-color;
+    }
+  }
+}
+
+.benefit-header {
+  display: flex;
+  align-items: center;
+  padding: $spacing-sm;
+  cursor: pointer;
+  
+  .icon-container {
+    width: 32px;
+    height: 32px;
+    border-radius: $border-radius-round;
+    background-color: rgba($primary-color, 0.8);
+    color: $white;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: $spacing-md;
+    flex-shrink: 0;
+    transition: all $transition-fast;
+    box-shadow: 0 4px 10px rgba($primary-color, 0.3);
+  }
+  
+  h4 {
+    color: $white;
+    margin: 0;
+    font-size: 1rem;
+    transition: color $transition-fast;
+    
+    @media (max-width: $mobile) {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: $mobile) {
+    padding: $spacing-xs;
+    
+    .icon-container {
+      width: 28px;
+      height: 28px;
+      margin-right: $spacing-sm;
+    }
+  }
+}
+
+.benefit-content {
+  padding: 0 $spacing-md $spacing-sm calc(32px + #{$spacing-md * 2});
+  
+  p {
+    color: rgba($white, 0.8);
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+.cta-container {
+  background-color: rgba($primary-color, 0.1);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  text-align: center;
+  border: 1px solid rgba($primary-color, 0.3);
+  margin-top: auto;
+  margin-bottom: 0;
+  
+  h4 {
+    color: $white;
+    margin-bottom: $spacing-md;
+    font-size: 1.2rem;
+  }
+  
+  .btn-outline {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all $transition-fast;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: $primary-color;
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    
+    &:hover {
+      color: $white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba($primary-color, 0.4);
+      
+      &:before {
+        width: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}

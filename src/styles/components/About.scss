@@ -1,0 +1,70 @@
+@import '../variables';
+
+.about {
+  background-color: $light-bg;
+  padding: $spacing-xxl 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  
+  @media (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-text {
+  p {
+    font-size: 1.1rem;
+    margin-bottom: $spacing-md;
+    color: $text-color;
+    line-height: 1.7;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.value-card {
+  background-color: $dark-bg;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform $transition-medium, box-shadow $transition-medium;
+  height: 100%;
+  border: 1px solid rgba($primary-color, 0.2);
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $box-shadow-lg;
+  }
+  
+  .icon-container {
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+  
+  h3 {
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+  }
+  
+  p {
+    margin-bottom: 0;
+    color: $text-color;
+  }
+}
